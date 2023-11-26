@@ -1,8 +1,20 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+# !/usr/bin/env sh
+# . "$(dirname -- "$0")/_/husky.sh"
 
-echo "Running pre-commit hook";
+# echo "Running pre-commit hook";
 
-pnpm run checkall;
+# pnpm run checkall;
 
-echo "cspell, lint-style, eslint and type-check all of this pass";
+# echo "cspell, lint-style, eslint and type-check all of this pass";
+#!/usr/bin/env zx
+import { $ } from 'zx'
+
+console.log('开始执行代码质量评估...\n')
+
+await import('./check').catch((out) => {
+  throw new Error('代码质量评估失败, 请检查代码')
+})
+
+console.log('printf "检测通过, 创建 commit 中...\n')
+
+await $`git add .`

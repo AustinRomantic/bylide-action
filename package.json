@@ -13,7 +13,20 @@
     "lint:style": "stylelint **/*.{vue,css}",
     "format": "prettier --write src/",
     "checkall": "run-p lint type-check lint:style spellcheck",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint:stage": "lint-staged",
+    "commit": "git-cz",
+    "commitlint": "commitlint --edit"
+  },
+  "lint-staged": {
+    "*.{html,vue,css,sass,scss,ts}": "prettier --write",
+    "*.{vue,ts}": "eslint --fix",
+    "*.{vue,css,sass,scss}": "stylelint --fix"
+  },
+  "config": {
+    "commitizen": {
+        "path": "node_modules/cz-git"
+    }
   },
   "dependencies": {
     "pinia": "^2.1.7",
