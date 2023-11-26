@@ -4,3 +4,5 @@
 echo "Running pre-commit hook";
 
 pnpm run checkall;
+
+echo "cspell, lint-style, eslint and type-check all of this pass";
