@@ -3,4 +3,4 @@
 
 echo "Running pre-commit hook";
 
-pnpm run check;
+pnpm run checkall;
